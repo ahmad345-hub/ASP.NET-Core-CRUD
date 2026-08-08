@@ -1,4 +1,4 @@
-﻿```cshtml
+﻿
 @model User
 
 @{
@@ -118,21 +118,30 @@
             <p>Add a new user to the system</p>
         </div>
 
-        <form asp-action="Create" method="post">
+        ```html
+        <form action="/Users/Create" method="post">
 
             <div class="form-group">
                 <label asp-for="Name">Name</label>
-                <input asp-for="Name" placeholder="Enter user name" />
+                <input asp-for="Name"
+                       name="Name"
+                       placeholder="Enter user name" />
             </div>
 
             <div class="form-group">
                 <label asp-for="Email">Email</label>
-                <input asp-for="Email" type="email" placeholder="Enter email address" />
+                <input asp-for="Email"
+                       name="Email"
+                       type="email"
+                       placeholder="Enter email address" />
             </div>
 
             <div class="form-group">
                 <label asp-for="Password">Password</label>
-                <input asp-for="Password" type="password" placeholder="Enter password" />
+                <input asp-for="Password"
+                       name="Password"
+                       type="password"
+                       placeholder="Enter password" />
             </div>
 
             <button type="submit" class="create-btn">
@@ -140,6 +149,8 @@
             </button>
 
         </form>
+        ```
+
 
         <a href="/Users" class="back">
             ← Back to Users
@@ -149,4 +160,4 @@
 
 </body>
 </html>
-```
+

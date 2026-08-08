@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Data;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -16,6 +17,14 @@ namespace WebApplication1.Controllers
         public ViewResult Creat()
         {
             return View();
+        }
+
+
+        public ViewResult Create(User Request)
+        {
+            context.Users.Add(Request);
+            context.SaveChanges();
+            return View(Creat);
         }
 
 
