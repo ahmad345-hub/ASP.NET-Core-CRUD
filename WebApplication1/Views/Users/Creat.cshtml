@@ -1,0 +1,152 @@
+﻿```cshtml
+@model User
+
+@{
+    ViewData["Title"] = "Create User";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create User</title>
+
+    <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            body {
+                min-height: 100vh;
+                background: #f4f7fb;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .card {
+                width: 420px;
+                background: white;
+                padding: 35px;
+                border-radius: 16px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            }
+
+            .title {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+                .title h1 {
+                    color: #1e293b;
+                    margin-bottom: 8px;
+                }
+
+                .title p {
+                    color: #64748b;
+                    font-size: 14px;
+                }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                color: #334155;
+                font-weight: bold;
+            }
+
+            input {
+                width: 100%;
+                padding: 12px 14px;
+                border: 1px solid #cbd5e1;
+                border-radius: 8px;
+                outline: none;
+                font-size: 15px;
+            }
+
+                input:focus {
+                    border-color: #2563eb;
+                    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+                }
+
+            .create-btn {
+                width: 100%;
+                padding: 13px;
+                border: none;
+                border-radius: 8px;
+                background: #2563eb;
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                margin-top: 5px;
+            }
+
+                .create-btn:hover {
+                    background: #1d4ed8;
+                }
+
+            .back {
+                display: block;
+                text-align: center;
+                margin-top: 18px;
+                color: #64748b;
+                text-decoration: none;
+                font-size: 14px;
+            }
+
+                .back:hover {
+                    color: #2563eb;
+                }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div class="title">
+            <h1>Create User</h1>
+            <p>Add a new user to the system</p>
+        </div>
+
+        <form asp-action="Create" method="post">
+
+            <div class="form-group">
+                <label asp-for="Name">Name</label>
+                <input asp-for="Name" placeholder="Enter user name" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" type="email" placeholder="Enter email address" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" type="password" placeholder="Enter password" />
+            </div>
+
+            <button type="submit" class="create-btn">
+                Create User
+            </button>
+
+        </form>
+
+        <a href="/Users" class="back">
+            ← Back to Users
+        </a>
+
+    </div>
+
+</body>
+</html>
+```
