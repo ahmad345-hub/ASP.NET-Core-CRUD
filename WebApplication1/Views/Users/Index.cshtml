@@ -48,6 +48,7 @@
     }
 
     .details-btn,
+    .edit-btn,
     .delete-btn {
         color: white;
         padding: 8px 14px;
@@ -63,6 +64,15 @@
 
         .details-btn:hover {
             background: #1d4ed8;
+        }
+
+    .edit-btn {
+        background: #f59e0b;
+        margin-left: 5px;
+    }
+
+        .edit-btn:hover {
+            background: #d97706;
         }
 
     .delete-btn {
@@ -108,6 +118,11 @@
                             <a href="/Users/Details/@user.Id"
                                class="details-btn">
                                 Details
+                            </a>
+
+                            <a href="/Users/Edit/@user.Id"
+                               class="edit-btn">
+                                Edit
                             </a>
 
                             <form action="/Users/Delete/@user.Id"

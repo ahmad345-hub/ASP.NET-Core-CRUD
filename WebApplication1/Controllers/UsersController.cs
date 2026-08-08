@@ -48,5 +48,31 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Index");
         }
 
+
+
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var user = context.Users.Find(id);
+
+            if (user == null)
+                return NotFound();
+
+            return View(user);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(User user)
+        {
+            if (!ModelState.IsValid)
+                return View(user);
+
+            context.Users.Update(user);
+            context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
