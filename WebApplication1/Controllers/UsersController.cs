@@ -27,7 +27,12 @@ namespace WebApplication1.Controllers
             return View(Creat);
         }
 
+        public ViewResult Details(int id)
+        {
+            var user = context.Users.Find(id);
 
+            return View(user);
+        }
 
     }
 }
