@@ -34,5 +34,19 @@ namespace WebApplication1.Controllers
             return View(user);
         }
 
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var user = context.Users.Find(id);
+
+            if (user == null)
+                return NotFound();
+
+            context.Users.Remove(user);
+            context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
