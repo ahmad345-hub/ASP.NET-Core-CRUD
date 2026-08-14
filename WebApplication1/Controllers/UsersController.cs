@@ -6,25 +6,34 @@ namespace WebApplication1.Controllers
 {
     public class UsersController : Controller
     {
-
         ApplicationDbContext context = new ApplicationDbContext();
+
         public ViewResult Index()
         {
             var Users = context.Users.ToList();
             return View(Users);
         }
 
-        public ViewResult Creat()
+        // GET: Users/Create
+        [HttpGet]
+        public ViewResult Create()
         {
             return View();
         }
 
-
-        public ViewResult Create(User Request)
+        // POST: Users/Create
+        [HttpPost]
+        public IActionResult Create(User Request)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(Request);
+            }
+
             context.Users.Add(Request);
             context.SaveChanges();
-            return View(Creat);
+
+            return RedirectToAction("Index");
         }
 
         public ViewResult Details(int id)
@@ -48,9 +57,6 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Index");
         }
 
-
-
-
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -73,6 +79,5 @@ namespace WebApplication1.Controllers
 
             return RedirectToAction("Index");
         }
-
     }
 }

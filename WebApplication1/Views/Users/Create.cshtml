@@ -1,0 +1,163 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "Create User";
+}
+
+<style>
+    .create-page {
+        min-height: 80vh;
+        background: #f4f7fb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        width: 420px;
+        background: white;
+        padding: 35px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .title {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+        .title h1 {
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .title p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #334155;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        outline: none;
+        font-size: 15px;
+    }
+
+        input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+    .text-danger {
+        display: block;
+        margin-top: 5px;
+        color: #dc2626;
+        font-size: 13px;
+    }
+
+    .create-btn {
+        width: 100%;
+        padding: 13px;
+        border: none;
+        border-radius: 8px;
+        background: #2563eb;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+
+        .create-btn:hover {
+            background: #1d4ed8;
+        }
+
+    .back {
+        display: block;
+        text-align: center;
+        margin-top: 18px;
+        color: #64748b;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+        .back:hover {
+            color: #2563eb;
+        }
+</style>
+
+<div class="create-page">
+
+    <div class="card">
+
+        <div class="title">
+            <h1>Create User</h1>
+            <p>Add a new user to the system</p>
+        </div>
+
+        <form asp-controller="Users" asp-action="Create" method="post">
+
+            <div class="form-group">
+                <label asp-for="Name">Name</label>
+
+                <input asp-for="Name"
+                       placeholder="Enter user name" />
+
+                <span asp-validation-for="Name"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+
+                <input asp-for="Email"
+                       type="email"
+                       placeholder="Enter email address" />
+
+                <span asp-validation-for="Email"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+
+                <input asp-for="Password"
+                       type="password"
+                       placeholder="Enter password" />
+
+                <span asp-validation-for="Password"
+                      class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="create-btn">
+                Create User
+            </button>
+
+        </form>
+
+        <a asp-controller="Users"
+           asp-action="Index"
+           class="back">
+            ← Back to Users
+        </a>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
